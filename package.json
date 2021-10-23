@@ -1,0 +1,23 @@
+{
+  "name": "smartphone-api",
+  "version": "1.0.0",
+  "description": "Api to get access to all data related to smartphones",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Knos01/smartphone-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Knos01/smartphone-api/issues"
+  },
+  "homepage": "https://github.com/Knos01/smartphone-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
+  }
+}
