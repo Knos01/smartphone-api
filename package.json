@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Knos01/smartphone-api#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "request-promise": "^4.2.6"
   }
 }
