@@ -61,8 +61,23 @@ div {
 
 let devices = [
     {
-        producer: 'Apple',
         model: 'Iphone 11',
-        ram: '3'
+        SoC: '',
+        GPU: '',
+        CPU: '',
+        StorageCapacity: '',
+        RemovableStorage: '',
+        RAM: '3',
+        OS: '',
+        CustomLauncher: '',
+        Dimensions: '',
+        Weight: '',
+        battery: '',
+        charging: '',
+        display: '',
+        camera: '',
+        video: '',
+        cameraFront: '',
+        fingerPrintScanner: ''
     }
 ]
