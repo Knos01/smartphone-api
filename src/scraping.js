@@ -13,13 +13,25 @@ const scrapingUrl = async (req, res) => {
         let rows = tbody.children()
         
         let data = []
+        let j = 0
+
 
         rows.children().each((index, td) => {
             data[index] = $(td).text().replace('\n', '')
+            
         })
+        for (index = 0; index < data.length; index++){
+            switch(index % 18){
+                case 0 : devices.model += ', ' + data[index]
+                            break
+                case 1 : devices.SoC += ', ' + data[index]
+                            break
+                
+            }
+        }
 
 
-        console.log(data)
+        console.log(devices)
         
         res.status(200).send(data)
     } catch (err) {
