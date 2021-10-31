@@ -9,7 +9,7 @@ const scrapingUrl = async (req, res) => {
 
         const $ = cheerio.load(html)
 
-        let tbody = $('.wikitable > tbody > tr')
+        let tbody = $('.wikitable > tbody')
         let rows = tbody.children()
         
         let data = []
