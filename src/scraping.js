@@ -22,7 +22,7 @@ const scrapingUrl = async (req, res) => {
         })
         for (index = 0; index < data.length; index++){
             switch(index % 18){
-                case 0 : devices.model += ', ' + data[index]
+                case 0 : devices.model += '<br>' + data[index]
                             break
                 case 1 : devices.SoC += ', ' + data[index]
                             break
@@ -33,7 +33,7 @@ const scrapingUrl = async (req, res) => {
 
         console.log(devices.model)
         
-        res.status(200).send(devices.model)
+        res.status(200).send(data)
     } catch (err) {
         console.log(err)
     }
