@@ -33,7 +33,7 @@ const scrapingUrl = async (req, res) => {
 
         console.log(devices.model)
         
-        res.status(200).send(data)
+        res.status(200).send(devices.model)
     } catch (err) {
         console.log(err)
     }
