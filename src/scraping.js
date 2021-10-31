@@ -15,12 +15,14 @@ const scrapingUrl = async (req, res) => {
         let data = []
         let j = 0
 
+        rows.each(index, tr => {
+            if(index == 0){
+                devices.model += '<br>' + $(tr).text()
+            }
+        })
 
         rows.children().each((index, td) => {
-            data[index] = $(td).text().replace('\n', '')
-            if (index == 0){
-                devices.model += '<br>' + data[index]
-            }  
+            data[index] = $(td).text().replace('\n', '') 
         })
 
 
