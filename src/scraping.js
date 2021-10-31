@@ -18,17 +18,10 @@ const scrapingUrl = async (req, res) => {
 
         rows.children().each((index, td) => {
             data[index] = $(td).text().replace('\n', '')
-            
+            if (index == 0){
+                devices.model += '<br>' + data[index]
+            }  
         })
-        for (index = 0; index < data.length; index++){
-            switch(index % 18){
-                case 0 : devices.model += '<br>' + data[index]
-                            break
-                case 1 : devices.SoC += ', ' + data[index]
-                            break
-                
-            }
-        }
 
 
         console.log(devices.model)
