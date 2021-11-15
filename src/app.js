@@ -16,21 +16,6 @@ app.get('/', (req, res) => {
 app.get('/scraping', scraping.scrapingUrl)
 
 
-/* 
-
-let test = Test()
-
-let person = {
-    name: 'John',
-    age: 8
-}
-
-person['name']
-person.name
-
-*/
-
-
 //to start server
 app.listen(port, () => {
     console.log(`Server starts at port ${port}`)
