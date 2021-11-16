@@ -9,8 +9,9 @@ const port = process.env.PORT || "8000"
 //define routes
 
 app.get('/', (req, res) => {
-    return res.status(200).send("Your app works!")
+    res.status(200).send("Your app works!")
 })
+
 
 app.get('/scraping', scraping.scrapingUrl)
 
