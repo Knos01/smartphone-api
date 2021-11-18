@@ -1,10 +1,17 @@
 const express = require('express')
 const path = require('path')
 const scraping = require('./scraping')
+const { connectDb } = require('./db')
+
 
 const app = express()
 const port = process.env.PORT || "8000"
 
+try {
+    connectDb()
+} catch (err) {
+    console.log(err)
+}
 
 //define routes
 
