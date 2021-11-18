@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const scraping = require('./scraping')
+const devices = require('./devices')
 const { connectDb } = require('./db')
 
 
@@ -21,6 +22,8 @@ app.get('/', (req, res) => {
 
 
 app.get('/scraping', scraping.scrapingUrl)
+
+app.get('/devices', devices.getDevices)
 
 
 //to start server
