@@ -99,7 +99,7 @@ const deviceSchema = new mongoose.Schema({
     },
 
     releaseDate: {
-        type: Date,
+        type: String,
         required: false
     }
 
