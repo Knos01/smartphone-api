@@ -3,13 +3,14 @@ const Device = require('./models/devices')
 const getDevices = async (req, res) => {
     try {
         const availableFilters = ['OS', 'RAM', 'camera', 'cameraFront', 'display', 'charging', 
-                                  'removableStorage', 'battery', 'storageCapacity', 'releaseDate'] 
+                                  'removableStorage', 'battery', 'storageCapacity', 'releaseDate', 'model'] 
         
         let query = Device.find() // SELECT * FROM DEVICES
 
         for (let i = 0; i < availableFilters.length; i++) {
             if (req.query[availableFilters[i]]) {
-                query.where(availableFilters[i], req.query[availableFilters[i]])
+                //search by contains
+                query.where(availableFilters[i], new RegExp(req.query[availableFilters[i]], 'i'))
             }
         }
  
