@@ -1,12 +1,13 @@
 const express = require('express')
 const path = require('path')
-const scraping = require('./scraping')
-const devices = require('./devices')
-const { connectDb } = require('./db')
+const { scrapingUrl }  = require('./scraping')
+const { getDevices } = require('./devices')
+const { connectDb } = require('./db') //import come oggetto
 
 
-const app = express()
+const app = express() //costruttore
 const port = process.env.PORT || "8000"
+
 
 try {
     connectDb()
@@ -21,9 +22,9 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/scraping', scraping.scrapingUrl)
+app.get('/scraping', scrapingUrl)
 
-app.get('/devices', devices.getDevices)
+app.get('/devices', getDevices)
 
 
 //to start server
