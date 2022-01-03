@@ -35,8 +35,6 @@ const getFilters = async (req, res) => {
             query = Device.find()
             query.distinct(availableFilters[i])
             devices = await query.exec()
-            console.log("\n\n" + availableFilters[i] + "\n\n\n")
-            console.log(JSON.stringify(devices))
             result[availableFilters[i]] = devices
         }
 
