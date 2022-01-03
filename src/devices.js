@@ -1,6 +1,6 @@
 const Device = require('./models/devices')
 const availableFilters = ['OS', 'RAM', 'camera', 'cameraFront', 'display', 'charging', 
-                          'removableStorage', 'battery', 'storageCapacity', 'releaseDate']
+                          'removableStorage', 'battery', 'storageCapacity', 'releaseDate', 'model']
 
 const getDevices = async (req, res) => {
     try { 
@@ -31,7 +31,7 @@ const getFilters = async (req, res) => {
         let devices;
         let result = {};
 
-        for (let i = 0; i < availableFilters.length; i++) {
+        for (let i = 0; i < availableFilters.length - 1; i++) {
             query = Device.find()
             query.distinct(availableFilters[i])
             devices = await query.exec()
