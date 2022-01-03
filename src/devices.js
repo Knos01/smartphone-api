@@ -1,9 +1,9 @@
 const Device = require('./models/devices')
+const availableFilters = ['OS', 'RAM', 'camera', 'cameraFront', 'display', 'charging', 
+                          'removableStorage', 'battery', 'storageCapacity', 'releaseDate']
 
 const getDevices = async (req, res) => {
-    try {
-        const availableFilters = ['OS', 'RAM', 'camera', 'cameraFront', 'display', 'charging', 
-                                  'removableStorage', 'battery', 'storageCapacity', 'releaseDate', 'model'] 
+    try { 
         
         let query = Device.find() // SELECT * FROM DEVICES
 
@@ -19,11 +19,33 @@ const getDevices = async (req, res) => {
 
         res.status(200).json(devices)
     } catch (err) {
-        console.log(err)
-        res.status(400).json({ message: err.toString() })
+      console.log(err)
+      res.status(400).json({ message: err.toString() })
+    }
+}
+
+const getFilters = async (req, res) => {
+    try {
+
+        let query;
+        let devices;
+        let result = {};
+
+        for (let i = 0; i < availableFilters.length; i++) {
+            query = Device.find()
+            query.distinct(availableFilters[i])
+            devices = await query.exec()
+            result[availableFilters[i]] = devices
+        }
+
+        res.status(200).json(result)
+    } catch (err) {
+      console.log(err)
+      res.status(400).json({ message: err.toString() })
     }
 }
 
 module.exports = {
-    getDevices
+    getDevices,
+    getFilters
 }
