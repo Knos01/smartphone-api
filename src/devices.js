@@ -11,6 +11,7 @@ const getDevices = async (req, res) => {
             if (req.query[availableFilters[i]]) {
                 //search by contains
                 query.where(availableFilters[i], new RegExp(req.query[availableFilters[i]], 'i'))
+                query.where('deprecated', null)
             }
         }
  
@@ -34,6 +35,7 @@ const getFilters = async (req, res) => {
         for (let i = 0; i < availableFilters.length - 1; i++) {
             query = Device.find()
             query.distinct(availableFilters[i])
+            query.where('deprecated', null)
             devices = await query.exec()
             result[availableFilters[i]] = devices
         }

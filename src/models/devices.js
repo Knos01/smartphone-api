@@ -101,6 +101,10 @@ const deviceSchema = new mongoose.Schema({
     releaseDate: {
         type: String,
         required: false
+    },
+    deprecated: {
+        type: Boolean,
+        required: false
     }
 
 }, {
