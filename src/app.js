@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/scraping', scrapingUrl)
+//app.get('/scraping', scrapingUrl)
 
 app.get('/devices', getDevices)
 

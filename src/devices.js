@@ -40,6 +40,9 @@ const getFilters = async (req, res) => {
             result[availableFilters[i]] = devices
         }
 
+        let query2 = Device.updateMany({releaseDate: '2011'}, { $set: { deprecated: true } })
+        await query2.exec()
+
         res.status(200).json(result)
     } catch (err) {
       console.log(err)
