@@ -18,7 +18,7 @@ try {
 //define routes
 
 app.get('/', (req, res) => {
-    res.status(200).send("Your app works!")
+    res.status(200).send("possibile routes: /devices, /filters, /scraping")
 })
 
 
