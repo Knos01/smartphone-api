@@ -14,11 +14,11 @@ try {
 } catch (err) {
     console.log(err)
 }
-
+ 
 //define routes
 
 app.get('/', (req, res) => {
-    res.status(200).send("possibile routes: /devices, /filters, /scraping")
+    res.status(200).send("possible routes: /devices, /filters, /scraping")
 })
 
 
