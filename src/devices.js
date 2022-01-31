@@ -45,22 +45,25 @@ const applyBooleanFilters = async (req, query) => {
     })
 }
 
+
+// { 'RAM': ['1-2 GB', '2-4 GB', '4-6 GB', '6+ GB']}
+// { $or: [ {"RAM": {$in: [/(^8 GB)|(.*\/8 GB)/]}}, {"RAM": {$in: [/(^12 GB)|(.*\/12 GB)/]}} ] }
 const applyRangeFilters = async (req, query) => {
     rangeFilters.forEach(f => {
         currentFilter = Object.keys(f)[0]
         console.log(req.query[currentFilter])
         console.log(f[currentFilter].includes(req.query[currentFilter]))
         if (req.query[currentFilter] && f[currentFilter].includes(req.query[currentFilter])) {
-            values = req.query[currentFilter]
+            values = req.query[currentFilter] // 1-2 GB
 
-            let start = values.split('-')[0]
-            let end = values.split('-')[1].split(' ')[0]
-            let unit = values.split(' ')[1]
+            let start = values.split('-')[0] // 1
+            let end = values.split('-')[1].split(' ')[0] // 2
+            let unit = values.split(' ')[1] // GB
             
             console.log('start: ' + start)
             console.log('end: ' + end)
             console.log('unit: ' + unit)
-            query.where(currentFilter).gte(start + ' ' + unit).lte(end + ' ' + unit)
+            query.where(currentFilter).regex(new RegExp(`(^${start} ${unit})|(.*\/${start} ${unit})|(^${end} ${unit})|(.*\/${end} ${unit})`)) 
        
         }
     })
