@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const { scrapingUrl }  = require('./scraping')
-const { getDevices, getFilters } = require('./devices')
+const { getDevices } = require('./devices')
 const { connectDb } = require('./db') //import come oggetto
 
 
@@ -14,11 +14,11 @@ try {
 } catch (err) {
     console.log(err)
 }
-
+ 
 //define routes
 
 app.get('/', (req, res) => {
-    res.status(200).send("possibile routes: /devices, /filters, /scraping")
+    res.status(200).send("possible routes: /devices, /filters, /scraping")
 })
 
 
@@ -26,7 +26,6 @@ app.get('/', (req, res) => {
 
 app.get('/devices', getDevices)
 
-app.get('/filters', getFilters)
 
 //to start server
 app.listen(port, () => {
