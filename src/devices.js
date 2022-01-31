@@ -3,8 +3,7 @@ const regexFilters = ['OS', 'releaseDate', 'model']
 const rangeFilters = 
     [
         { 'RAM': ['1-2 GB', '2-4 GB', '4-6 GB', '6+ GB']}, 
-        {'camera': ['4-8 MP', '8-12 MP', '12-16 MP', '16-20 MP', '20+ MP']},
-        {'display': ['3-4 \'\'', '4-4.4 \'\'', '4.4-4.9 \'\'', '4.9-5.4 \'\'', '5.4+ \'\'']}, 
+        {'camera': ['4-8 MP', '8-12 MP', '12-16 MP', '16-20 MP', '20-48 MP']},
         {'storageCapacity': ['16-32 GB', '32-64 GB', '64-128 GB', '128-256 GB', '256+ GB']},
     ]
 const booleanFilters = ['removableStorage']
