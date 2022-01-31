@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const { scrapingUrl }  = require('./scraping')
-const { getDevices, getFilters } = require('./devices')
+const { getDevices } = require('./devices')
 const { connectDb } = require('./db') //import come oggetto
 
 
@@ -26,7 +26,6 @@ app.get('/', (req, res) => {
 
 app.get('/devices', getDevices)
 
-app.get('/filters', getFilters)
 
 //to start server
 app.listen(port, () => {
