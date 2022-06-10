@@ -10,8 +10,7 @@ const booleanFilters = ['removableStorage']
 
 const getDevices = async (req, res) => {
     try { 
-        
-        let query = Device.find() // SELECT * FROM DEVICES
+        let query = Device.find()
         query.where('deprecated', null)
         
         applyRegexFilters(req, query)
@@ -43,16 +42,15 @@ const applyBooleanFilters = async (req, query) => {
     })
 }
 
-
 const applyRangeFilters = async (req, query) => {
     rangeFilters.forEach(f => {
         currentFilter = Object.keys(f)[0]
         if (req.query[currentFilter] && f[currentFilter].includes(req.query[currentFilter])) {
-            values = req.query[currentFilter] // 1-2 GB
+            values = req.query[currentFilter]
 
-            let start = values.split('-')[0] // 1
-            let end = values.split('-')[1].split(' ')[0] // 2
-            let unit = values.split(' ')[1] // GB
+            let start = values.split('-')[0]
+            let end = values.split('-')[1].split(' ')[0]
+            let unit = values.split(' ')[1]
             
             query.where(currentFilter).regex(new RegExp(`(^${start} ${unit})|(.*\/${start} ${unit})|(^${end} ${unit})|(.*\/${end} ${unit})`)) 
        

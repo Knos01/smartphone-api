@@ -8,7 +8,6 @@ const Device = require('./models/devices')
 const scrapingUrl = async (req, res) => {
     try {
         const html = await request(url)
-
         const $ = cheerio.load(html)
 
         tableParser($);
@@ -18,7 +17,6 @@ const scrapingUrl = async (req, res) => {
 
         let data = []
 
-        //put each element of revertedTable inside devices 
         for (let i = 1; i < revertedTable.length; i++) {
             let device = {}
             device.model = revertedTable[i][0]
@@ -51,7 +49,7 @@ const scrapingUrl = async (req, res) => {
 }
 
 const uploadDevices = async (devices) => {
-    let newDevice
+    let newDevice;
 
     for (let i = 0; i < devices.length; i++) {
         try {

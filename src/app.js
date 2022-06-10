@@ -1,11 +1,11 @@
 const express = require('express')
-const path = require('path')
 const { scrapingUrl }  = require('./scraping')
 const { getDevices } = require('./devices')
-const { connectDb } = require('./db') //import come oggetto
+const { connectDb } = require('./db')
+require('dotenv').config();
 
 
-const app = express() //costruttore
+const app = express()
 const port = process.env.PORT || "8000"
 
 
@@ -15,19 +15,15 @@ try {
     console.log(err)
 }
  
-//define routes
 
 app.get('/', (req, res) => {
     res.status(200).send("possible routes: /devices, /filters, /scraping")
 })
 
-
-//app.get('/scraping', scrapingUrl)
+//app.get('/scraping', scrapingUrl) Uncomment to run the scraping
 
 app.get('/devices', getDevices)
 
-
-//to start server
 app.listen(port, () => {
     console.log(`Server starts at port ${port}`)
 })
