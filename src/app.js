@@ -17,7 +17,7 @@ try {
  
 
 app.get('/', (req, res) => {
-    res.status(200).send("possible routes: /devices, /filters, /scraping")
+    res.status(200).send("possible routes: /devices, /scraping")
 })
 
 //app.get('/scraping', scrapingUrl) Uncomment to run the scraping
